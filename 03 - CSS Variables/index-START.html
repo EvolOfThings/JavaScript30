@@ -21,6 +21,23 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    :root {             /*   this is th highest level in CSS   */
+      --base: #ffc600;  /*   -- is how you set the values     */
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+               /*reference those css variables*/
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .h1 {
+      color: var(--base);
+    }
 
     /*
       misc styles, nothing to do with CSS variables
@@ -45,6 +62,17 @@
   </style>
 
   <script>
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || ''; // we get the suffix of input field and OR is for color since it has no suffix
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix); // this.name is from html input name attribute
+    }
+
+// Listen for the change on the input fiels and run update function on them
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate)); //since the input is range scroll will only give only after it's ended but we need as and when it is moving)
   </script>
 
 </body>

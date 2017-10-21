@@ -15,7 +15,63 @@
     </ul>
   </form>
 <script>
+
+  // US states and cities
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+// Indian states and cities
+// const endpoint2 = 'https://github.com/nshntarora/Indian-Cities-JSON/blob/master/cities.json';
+
+const cities = [];
+
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => cities.push(...data)); // we push the array to cities by using spread
+
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    // if city and state matches what was searched
+    const regex = new RegExp(wordToMatch, 'gi'); //wordtoMatch is whatever we search for, flags: 'g' is global, it will look into the entire for that string and 'i' is insensitive, going to match lower and upper case.
+
+    // we return the city or the state
+    return place.city.match(regex) || place.state.match(regex);  // we can't put variable into RegEx so it is created outside
+  });
+}
+
+// To get cammas in th population number, this below function was copied from stackOverflow
+
+const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+
+
+// Display function
+
+function displayMatches() {
+  const matchArray = findMatches(this.value, cities);
+  // console.log(matchArray);
+
+  const html = matchArray.map(place => {
+    // regex to match the city name and use that to replace the word that matches with a span to highligh
+
+    const regex = new RegExp(this.value, 'gi');
+    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    return `
+    <li>
+    <span class="name">${cityName}, ${stateName}</span>
+    <span class="population">${numberWithCommas(place.population)}</span>
+    </li>
+    `;
+  }).join(''); // map() will return an array of multiple items but we just need one string
+  suggestions.innerHTML = html;
+}
+
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches); //change event fored only when you go off that inout not when you type into so we need keyup event
+searchInput.addEventListener('keyup', displayMatches); //
+
 </script>
   </body>
 </html>

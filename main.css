@@ -11,3 +11,25 @@ body {
     font-size: small;
     color: #98bd2e;
 }
+
+.container {
+    padding: 50px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 1px solid;
+    margin: 5px;
+    text-align: center;
+}

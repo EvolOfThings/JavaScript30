@@ -1,0 +1,13 @@
+body {
+    background-color: #6d6c6c;
+}
+
+
+.mainHeading, .subHeading  {
+    text-align: center;
+}
+
+.tiny {
+    font-size: small;
+    color: #98bd2e;
+}

@@ -2,13 +2,17 @@ body {
     background-color: #6d6c6c;
 }
 
+.plus1 {
+    font-size: larger;
+    color: gold;
+}
 
 .mainHeading, .subHeading  {
     text-align: center;
 }
 
 .tiny {
-    font-size: small;
+    font-size: medium;
     color: #98bd2e;
 }
 
@@ -30,6 +34,41 @@ li {
     width: 150px;
     height: 150px;
     border: 1px solid;
-    margin: 5px;
+    margin: 15px;
     text-align: center;
+}
+
+/*add transition effect on hover*/
+li:hover {
+    transition: all 0.1s;
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}
+
+.projectTitle {
+    margin-top: 0;
+    text-decoration: none;
+    color: gold;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+.footy {
+    background-color: #354488;
+    text-align: center;
+    padding: 8px;
 }

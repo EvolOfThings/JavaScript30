@@ -6,10 +6,17 @@
     //         return true;
     //     }
     // });
-
     // console.log(fiftees);
-
-
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+    // const names = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+    // console.log(names);
+
+        // Array.prototype.sort()
+    // 3. Sort the inventors by birthdate, oldest to youngest
+  // a is like the first person and b is the second person
+  // const oldToYoung = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+
+      // Array.prototype.reduce()
+    // 4. How many years did all the inventors live?

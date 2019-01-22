@@ -3,7 +3,7 @@
 
 - Fetch the data
 
-- typing - filter to subset either cuty name or state name matches.
+- typing - filter to subset either city name or state name matches.
 
 - Fetch API
 

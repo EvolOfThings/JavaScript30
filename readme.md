@@ -3,7 +3,7 @@
 # JavaScript30
 
 
-Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
+You too can start building and learning Vanilla JS at [https://JavaScript30.com](https://JavaScript30.com)
 
 
 
